@@ -8,10 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, LTMorphingLabelDelegate {
+class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
 
 
-    @IBOutlet weak var myNameLabel: LTMorphingLabel!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +34,7 @@ class ViewController: UIViewController, LTMorphingLabelDelegate {
                 if let myName = responseObject.valueForKey("name") as? String {
                     
                     self.myNameLabel.text = myName
-                    self.myNameLabel.morphingEffect = .Sparkle
+                   // self.myNameLabel.morphingEffect = .Sparkle
                 }
             
             },
@@ -42,10 +50,7 @@ class ViewController: UIViewController, LTMorphingLabelDelegate {
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet weak var myNameLabel: LTMorphingLabel!
 
 
 }
